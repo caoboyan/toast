@@ -26,8 +26,8 @@
     
     self.toastView = [[ToastView alloc]init];
     self.toastView.deleagte = self;
-    self.toastView.fadeType = ShowAndFadeTypeTopToBottomFadeToTop;
-    self.toastView.animaitionType = AnimationTypeNormal;
+    self.toastView.fadeType = ShowAndFadeTypeTopToBottomFadeToBottom;
+    self.toastView.animaitionType = AnimationTypeSpring;
     [[self topView].view addSubview:self.toastView];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

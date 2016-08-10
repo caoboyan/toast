@@ -32,6 +32,8 @@ static const NSUInteger defaultAnimationType = 1;
 
 @property (nonatomic, assign) CGFloat finalTop;
 
+@property (nonatomic, assign) CGFloat finalHeight;
+
 @end
 
 @implementation ToastView
@@ -76,6 +78,7 @@ static const NSUInteger defaultAnimationType = 1;
             self.top = -64;
             self.finalTop = 0;
             self.finalLeft = -ScreenWidth;
+            self.finalHeight = 64;
         }
             break;
         case ShowAndFadeTypeTopToBottomFadeToRight:
@@ -84,6 +87,7 @@ static const NSUInteger defaultAnimationType = 1;
             self.top = -64;
             self.finalTop = 0;
             self.finalLeft = ScreenWidth;
+            self.finalHeight = 64;
         }
             break;
         case ShowAndFadeTypeTopToBottomFadeToTop:
@@ -92,6 +96,54 @@ static const NSUInteger defaultAnimationType = 1;
             self.top = -64;
             self.finalLeft = 0;
             self.finalTop = -64;
+            self.finalHeight = 64;
+        }
+            break;
+        case ShowAndFadeTypeBottomToTopFadeToTop:{
+            self.left = 0;
+            self.height = 0;
+            self.top = 64;
+            self.finalTop = -64;
+            self.finalLeft = 0;
+            self.finalHeight = 64;
+        }
+            break;
+        case ShowAndFadeTypeBottomToTopFadeToLeft:{
+            self.left = 0;
+            self.height = 0;
+            self.top = 64;
+            self.finalTop = 0;
+            self.finalHeight = 64;
+            self.finalLeft = -ScreenWidth;
+        }
+            break;
+        case ShowAndFadeTypeBottomToTopFadeToRight:{
+            self.left = 0;
+            self.height = 0;
+            self.top = 64;
+            self.finalTop = 0;
+            self.finalHeight = 64;
+            self.finalLeft = ScreenWidth;
+        }
+            break;
+        case ShowAndFadeTypeBottomToTopFadeToBottom:
+        {
+            self.left = 0;
+            self.height = 0;
+            self.top = 64;
+            self.finalTop = 64;
+            self.finalHeight = 0;
+            self.finalLeft = 0;
+        }
+            break;
+        case ShowAndFadeTypeTopToBottomFadeToBottom:
+        {
+            self.left = 0;
+            self.height = 64;
+            self.top = -64;
+            self.finalTop = 64;
+            self.finalHeight = 0;
+            self.finalLeft = 0;
         }
             break;
         default:
@@ -113,11 +165,13 @@ static const NSUInteger defaultAnimationType = 1;
             [UIView animateWithDuration:self.animationDuration animations:^{
                 self.top = 0;
                 self.left = 0;
+                self.height = 64;
             } completion:^(BOOL finished) {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.showDuration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                     [UIView animateWithDuration:1.0f animations:^{
                         self.top = self.finalTop;
                         self.left = self.finalLeft;
+                        self.height = self.finalHeight;
                     }];
                 });
             }];
@@ -128,12 +182,18 @@ static const NSUInteger defaultAnimationType = 1;
         case AnimationTypeSpring:
         {
             
-            [UIView animateWithDuration:self.animationDuration delay:0.f usingSpringWithDamping:2.0f initialSpringVelocity:2.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [UIView animateWithDuration:self.animationDuration delay:0.f usingSpringWithDamping:0.3f initialSpringVelocity:0.5f options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 self.top = 0;
                 self.left = 0;
+                self.height = 64;
             } completion:^(BOOL finished) {
-                self.top = self.finalTop;
-                self.left = self.finalLeft;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.showDuration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    [UIView animateWithDuration:1.0f animations:^{
+                        self.top = self.finalTop;
+                        self.left = self.finalLeft;
+                        self.height = self.finalHeight;
+                    }];
+                });
             }];
         
         }
