@@ -15,6 +15,8 @@
 		89911D4C1D5B163F0009C319 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89911D4A1D5B163F0009C319 /* LaunchScreen.storyboard */; };
 		89911D571D5B163F0009C319 /* toastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89911D561D5B163F0009C319 /* toastTests.m */; };
 		89911D621D5B163F0009C319 /* toastUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89911D611D5B163F0009C319 /* toastUITests.m */; };
+		89911D791D5B1E960009C319 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 89911D781D5B1E960009C319 /* UIView+Sizes.m */; };
+		89911D7C1D5B20AF0009C319 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89911D7B1D5B20AF0009C319 /* ToastView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		89911D5D1D5B163F0009C319 /* toastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = toastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89911D611D5B163F0009C319 /* toastUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = toastUITests.m; sourceTree = "<group>"; };
 		89911D631D5B163F0009C319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89911D771D5B1E960009C319 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Sizes.h"; sourceTree = "<group>"; };
+		89911D781D5B1E960009C319 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
+		89911D7A1D5B20AE0009C319 /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastView.h; sourceTree = "<group>"; };
+		89911D7B1D5B20AF0009C319 /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +107,13 @@
 		89911D3B1D5B163F0009C319 /* toast */ = {
 			isa = PBXGroup;
 			children = (
+				89911D6F1D5B1AD50009C319 /* utility */,
 				89911D3F1D5B163F0009C319 /* AppDelegate.h */,
 				89911D401D5B163F0009C319 /* AppDelegate.m */,
 				89911D421D5B163F0009C319 /* ViewController.h */,
 				89911D431D5B163F0009C319 /* ViewController.m */,
+				89911D7A1D5B20AE0009C319 /* ToastView.h */,
+				89911D7B1D5B20AF0009C319 /* ToastView.m */,
 				89911D451D5B163F0009C319 /* Main.storyboard */,
 				89911D481D5B163F0009C319 /* Assets.xcassets */,
 				89911D4A1D5B163F0009C319 /* LaunchScreen.storyboard */,
@@ -138,6 +147,15 @@
 				89911D631D5B163F0009C319 /* Info.plist */,
 			);
 			path = toastUITests;
+			sourceTree = "<group>";
+		};
+		89911D6F1D5B1AD50009C319 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				89911D771D5B1E960009C319 /* UIView+Sizes.h */,
+				89911D781D5B1E960009C319 /* UIView+Sizes.m */,
+			);
+			name = utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +291,8 @@
 				89911D441D5B163F0009C319 /* ViewController.m in Sources */,
 				89911D411D5B163F0009C319 /* AppDelegate.m in Sources */,
 				89911D3E1D5B163F0009C319 /* main.m in Sources */,
+				89911D791D5B1E960009C319 /* UIView+Sizes.m in Sources */,
+				89911D7C1D5B20AF0009C319 /* ToastView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
